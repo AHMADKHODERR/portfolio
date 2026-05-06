@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bot, Send, X, Sparkles, User, MessageSquare } from 'lucide-react';
-import { personalInfo, skills, projects } from '../../data';
+import { Bot, Send, X, Sparkles } from 'lucide-react';
+import { personalInfo, skills } from '../../data';
 
 interface Message {
     id: string;

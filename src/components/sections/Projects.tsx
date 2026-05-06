@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Sparkles, Code2, ExternalLink, ShieldCheck } from 'lucide-react';
+import { MapPin, Sparkles, ExternalLink, ShieldCheck } from 'lucide-react';
 import { projects } from '../../data';
 
 const Projects = () => {

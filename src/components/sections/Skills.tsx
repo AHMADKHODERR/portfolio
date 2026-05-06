@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { skills } from '../../data';
-import { Code2, Terminal, Cpu, Blocks, Globe, Zap } from 'lucide-react';
+import { Terminal, Blocks, Globe, Zap } from 'lucide-react';
 
 const Skills = () => {
     const allSkills = [...skills.core, ...skills.frontend, ...skills.backend, ...skills.tools];

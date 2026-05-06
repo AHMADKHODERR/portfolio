@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, Linkedin, Send, Github } from 'lucide-react';
+import { Mail, Phone, Linkedin } from 'lucide-react';
 import { personalInfo } from '../../data';
 import Magnetic from '../layout/Magnetic';
 

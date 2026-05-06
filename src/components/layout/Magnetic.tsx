@@ -1,4 +1,4 @@
-import React, { useRef, useState, ReactElement } from 'react';
+import React, { useRef, useState, type ReactElement } from 'react';
 import { motion } from 'framer-motion';
 
 interface MagneticProps {

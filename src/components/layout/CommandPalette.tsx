@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Command, User, Code, Mail, ArrowRight, X } from 'lucide-react';
+import { Search, Command, User, Code, Mail, ArrowRight } from 'lucide-react';
 
 const CommandPalette: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);

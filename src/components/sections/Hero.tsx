@@ -53,7 +53,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-gray-500 dark:text-gray-400 text-lg sm:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed font-medium"
                 >
-                    A <span className="text-white underline decoration-accent decoration-2 underline-offset-4">{personalInfo.role}</span> architecting scalable DXP portals with <span className="text-accent-light">Liferay</span> & <span className="text-accent-light">React</span>.
+                    A <span className="text-black dark:text-white underline decoration-accent decoration-2 underline-offset-4">{personalInfo.role}</span> architecting scalable DXP portals with <span className="text-accent-light">Liferay</span> & <span className="text-accent-light">React</span>.
                 </motion.p>
 
                 <motion.div
@@ -67,7 +67,7 @@ const Hero = () => {
                             to="projects"
                             smooth={true}
                             duration={500}
-                            className="group cursor-pointer bg-white text-black hover:bg-accent hover:text-white font-bold py-4 px-10 rounded-full transition-all duration-500 flex items-center gap-3 shadow-xl"
+                            className="group cursor-pointer bg-white text-black hover:bg-accent hover:text-white font-bold py-4 px-10 rounded-full transition-all duration-500 flex items-center gap-3 shadow-xl border border-gray-200 dark:border-transparent"
                         >
                             Explore Portfolio
                             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -78,7 +78,7 @@ const Hero = () => {
                         <a
                             href="/cv.pdf"
                             download
-                            className="cursor-pointer glass-card text-white py-4 px-10 rounded-full transition-all duration-500 flex items-center gap-3 border-white/10 hover:border-accent/50"
+                            className="cursor-pointer glass-card text-black dark:text-white py-4 px-10 rounded-full transition-all duration-500 flex items-center gap-3 border-black/10 dark:border-white/10 hover:border-accent/50"
                         >
                             <Download size={20} className="text-accent" />
                             Download CV

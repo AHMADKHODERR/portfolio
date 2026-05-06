@@ -126,7 +126,7 @@ const AIAssistant: React.FC = () => {
                                     <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${
                                         msg.sender === 'user' 
                                             ? 'bg-accent text-white rounded-tr-none' 
-                                            : 'bg-white/10 dark:bg-white/5 border border-white/10 rounded-tl-none'
+                                            : 'bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-tl-none'
                                     }`}>
                                         {msg.text}
                                     </div>
@@ -134,7 +134,7 @@ const AIAssistant: React.FC = () => {
                             ))}
                             {isTyping && (
                                 <div className="flex justify-start">
-                                    <div className="bg-white/10 dark:bg-white/5 border border-white/10 p-3 rounded-2xl rounded-tl-none">
+                                    <div className="bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-3 rounded-2xl rounded-tl-none">
                                         <div className="flex gap-1">
                                             <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1.5 h-1.5 bg-accent rounded-full" />
                                             <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-accent rounded-full" />

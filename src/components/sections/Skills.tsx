@@ -1,85 +1,76 @@
 import { motion } from 'framer-motion';
 import { skills } from '../../data';
+import { Code2, Terminal, Cpu, Blocks, Globe, Zap } from 'lucide-react';
 
 const Skills = () => {
-    const container = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
-
-    const item = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0 }
-    };
+    const allSkills = [...skills.core, ...skills.frontend, ...skills.backend, ...skills.tools];
 
     return (
-        <section id="skills" className="py-20 bg-secondary/30">
+        <section id="skills" className="py-32 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-24"
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Technical <span className="text-accent">Expertise</span></h2>
-                    <div className="h-1 w-20 bg-accent mx-auto rounded-full"></div>
+                    <h2 className="text-4xl sm:text-6xl font-bold mb-6 tracking-tight">
+                        Technical <span className="text-gradient">Powerhouse</span>
+                    </h2>
+                    <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">
+                        Leveraging a sophisticated stack of modern technologies to build high-performance, AI-ready enterprise solutions.
+                    </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    {/* Main Skills (Core & Frontend) */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-6 flex items-center text-gray-900 dark:text-white">
-                            <span className="w-2 h-8 bg-purple-500 rounded-full mr-3"></span>
-                            Core & Frontend
-                        </h3>
-                        <motion.div
-                            variants={container}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={{ once: true }}
-                            className="flex flex-wrap gap-3"
-                        >
-                            {[...skills.core, ...skills.frontend].map((skill) => (
-                                <motion.span
-                                    key={skill}
-                                    variants={item}
-                                    className="bg-white/80 dark:bg-primary/50 border border-gray-200 dark:border-gray-700 hover:border-accent text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-white px-4 py-2 rounded-lg transition-all duration-300 cursor-default shadow-sm dark:shadow-none"
-                                >
-                                    {skill}
-                                </motion.span>
-                            ))}
-                        </motion.div>
-                    </div>
+                {/* Infinite Marquee */}
+                <div className="relative flex overflow-x-hidden mb-32 border-y border-white/5 py-10 bg-black/20">
+                    <motion.div
+                        animate={{ x: [0, -1000] }}
+                        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+                        className="flex whitespace-nowrap gap-12"
+                    >
+                        {[...allSkills, ...allSkills].map((skill, i) => (
+                            <div key={i} className="flex items-center gap-3 text-2xl font-bold text-gray-700 dark:text-gray-400/50 hover:text-accent transition-colors cursor-default uppercase tracking-tighter">
+                                <Zap size={20} className="text-accent-light" />
+                                {skill}
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
 
-                    {/* Backend & Tools */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-6 flex items-center text-gray-900 dark:text-white">
-                            <span className="w-2 h-8 bg-blue-500 rounded-full mr-3"></span>
-                            Backend, Tools & Concepts
-                        </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[
+                        { title: 'Core & Frontend', items: [...skills.core, ...skills.frontend], icon: Globe, color: 'text-blue-400' },
+                        { title: 'Backend & Logic', items: skills.backend, icon: Terminal, color: 'text-purple-400' },
+                        { title: 'Tools & Vision', items: [...skills.tools, ...skills.concepts], icon: Blocks, color: 'text-cyan-400' }
+                    ].map((category, idx) => (
                         <motion.div
-                            variants={container}
-                            initial="hidden"
-                            whileInView="show"
+                            key={idx}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="flex flex-wrap gap-3"
+                            transition={{ delay: idx * 0.1 }}
+                            className="glass-card p-10 rounded-3xl group relative overflow-hidden"
                         >
-                            {[...skills.backend, ...skills.tools, ...skills.concepts].map((skill) => (
-                                <motion.span
-                                    key={skill}
-                                    variants={item}
-                                    className="bg-white/80 dark:bg-primary/50 border border-gray-200 dark:border-gray-700 hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-white px-4 py-2 rounded-lg transition-all duration-300 cursor-default shadow-sm dark:shadow-none"
-                                >
-                                    {skill}
-                                </motion.span>
-                            ))}
+                            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <category.icon size={80} />
+                            </div>
+                            
+                            <category.icon className={`${category.color} mb-6`} size={32} />
+                            <h3 className="text-2xl font-bold mb-8">{category.title}</h3>
+                            
+                            <div className="flex flex-wrap gap-2">
+                                {category.items.map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className="text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-gray-400 group-hover:border-accent/30 transition-all"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
                         </motion.div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>
